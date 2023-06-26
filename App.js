@@ -19,6 +19,7 @@ export default function App() {
   };
 
   const deleteGoal = (id) => {
+    console.log('Pressed', id);
     setGoals((prev) => prev.filter((goal) => goal.id !== id));
   };
 
@@ -47,7 +48,7 @@ export default function App() {
         <FlatList
           data={goals}
           renderItem={({ item: { id, value }, index }) => (
-            <GoalItem deleteGoal={deleteGoal} idx={index} value={value} />
+            <GoalItem deleteGoal={deleteGoal} idx={id} value={value} />
           )}
           keyExtractor={({ id }) => id}
         />
